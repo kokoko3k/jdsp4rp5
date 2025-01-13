@@ -1,0 +1,111 @@
+jdsp4rp5: JamesDSP in root mode for unrooted Retroid Pocket 5
+======================================================
+
+The problem:
+-----------------------------
+	Retroid Pocket 5 speakers sounds really bad out of the box.
+	Unfortunately, rootless equalizer solutions cannot be applied to low latency
+	applications like most of the emulators, so a root solution is needed,
+	but rooting the Retroid Pocket 5 voids its warranty.
+
+	
+The solution:
+-----------------------------
+	Leverage the ability of the RP5 to run scripts as root to configure
+	the system to apply JamesDSP to every output stream.
+
+	
+Benefit/what to expect:
+-----------------------------
+	A dramatic improvement in sound quality from the speakers.
+	A fairly linear frequency response from 400hz to 10khz.
+	The equalization has been created by profiling the sound
+	when you have your hands "on" the console.
+
+
+What NOT to expect:
+-----------------------------
+	You won't hear anything lower than 400hz, nor did I bothered to
+	make it possible, since that would have lowered the volume
+	to absymal levels. RP5's little speakers are just not up to the task.
+
+
+Drawbacks:
+-----------------------------
+	The root script execution step has to be repeated everytime RP5 boots.
+	The audio output latency will increase by about 70ms.
+	The output volume will be lower.
+	CPU usage will be slightly higher.
+	
+	
+ELI5, over-detailed how to:
+-----------------------------
+	* If you haven't already, download the zip release file.
+	* Unpack it under your internal Downloads directory, so that the
+	  final structure will be like:
+	  
+	  RP% Internal Storage
+	      L Downloads
+               L jdsp4rp5
+	                 L support 
+	                 L 00-jdsp_setup.sh
+	                 L ...other files
+	  
+	  WARNING: It won't work from anywhere else (without modifications).
+	* Install, but don't open afterwards: JamesDSPManagerThePBone.apk from that folder.
+	* From the settings menu select:
+	      Handheld Settings, Advanced, Run scripts as Root, SELECT A SCRIPT
+	      Choose Downloads > jdsp4rp5: 00-jdsp_setup.sh
+	      Tap RUN.
+	* Now open the previously installed app
+	      JamesDSP Configuration:
+	        - Set Limiter threshold: -0.10dB
+	        - Set Limiter release: 500.00ms
+	        - Set Post gain: 15.00dB
+	        - Enable Arbitrary response equalizer.
+	        - Tap on the underlying graph.
+	        - Tap "Edit as string".
+	        - Paste the content of the file: GraphicEQ.txt 
+			  (something like: GraphicEQ: 480 0; 600 -5;....)
+	        - Confirm by tapping OK.
+	        - Go back.
+	        - Tap the cog icon in the lower/left side of the screen
+			- Select Audio processing, enable "Legacy mode".
+			- Go back, back.
+			- Finally enable the audio processing by clicking on the PowerOn/Off icon.
+	
+	* Play something!
+
+
+Further notes:
+-----------------------------
+	* As explained, this method does not survive a reboot.
+	  However, you don't have to repeat the *whole* setup everytime,
+	  but just the "run script as root -> 00-jdsp_setup.sh" part.
+	  On this subject, since I prefer to power down my device over night,
+	  I find convenient to add a shortcut for the Handheld setting on my
+	  home screen.
+	  For the task, I used "Activity Launcher" app to create a shortcut to:
+	  Handheld Settings -> com.ro.settings.activity.MainSettingsActivity
+	  
+	* To restore the original state of your RP5, either reboot it
+	  or Run script as root: 99-jdsp_cleanup.sh
+	  Note that JamesDSP and its configuration will stay.
+	  
+	* Since the equalization process lowers the output volume, 
+	  we have set JamesDSP to continuously push the volume as high as possible.
+	  If sound keep increasing and decreasing too much, just lower the
+	  RP5 volume by operating on its volume buttons.
+	  You may need to adjust it depending on the content it is playing.
+
+
+Credits/License:
+-----------------------------
+	* This package and the scripts made by kokoko3k are released under the 
+	  The GNU General Public License v2.0.
+	* Provided libjamesdsp.so by James Fung 
+	* Provided JamesDSPManagerThePBone.apk by James Fung
+	* Thanks to ShadoV from JamesDSP [Community] Telegram channel
+	  for insights and support over audio_effects.xml
+	* Thanks to Sayrune from RP5's discord channel
+	  for support on audio_policy_configuration.xml
