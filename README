@@ -54,11 +54,11 @@ ELI5, over-detailed how to:
       
       WARNING: It won't work from anywhere else (without modifications).
     * Install, but don't open afterwards: JamesDSPManagerThePBone.apk from that folder.
-    * From the settings menu select:
+    * From the settings menu, select:
           Handheld Settings, Advanced, Run scripts as Root, SELECT A SCRIPT
-          Choose Downloads > jdsp4rp5: 00-jdsp_setup.sh
+          Choose: "Downloads > jdsp4rp5": 00-jdsp_setup.sh
           Tap RUN.
-    * Now open the previously installed app
+    * Now let's configure the previously installed JamesDSO app, open it.
           JamesDSP Configuration:
             - Set Limiter threshold: -0.10dB
             - Set Limiter release: 500.00ms
