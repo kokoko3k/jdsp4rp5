@@ -99,6 +99,16 @@ Further notes:
 	  RP5 volume by operating on its volume buttons.
 	  You may need to adjust it depending on the content it is playing.
 
+	* Install location:
+	  As explained before, the whole thing will not work if not installed under
+	  Internal storage/Downloads location, this is due to a limitation in
+	  "Run script as root" feature.
+	  It is still possible to change the installed location if you edit the
+	  files: 00-jdsp_setup.sh and 99-jdsp_cleanup.sh
+	  You have to search for occurrences of: "/data/media/0/Download/"
+	  and replace them by "/data/media/0/something/else/of/your/choice".
+	  > It is Really important that you use /data/media/0 as the start path. <
+	  
 
 Credits/License:
 -----------------------------
