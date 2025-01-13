@@ -20,7 +20,8 @@ Benefit/what to expect:
 	A dramatic improvement in sound quality from the speakers.
 	A fairly linear frequency response from 400hz to 10khz.
 	The equalization has been created by profiling the sound
-	when you have your hands "on" the console.
+	through a professional calibration microphone while the
+	hands were "on" the console, That's the intended use.
 
 
 What NOT to expect:
@@ -109,3 +110,4 @@ Credits/License:
 	  for insights and support over audio_effects.xml
 	* Thanks to Sayrune from RP5's discord channel
 	  for support on audio_policy_configuration.xml
+	* Audio analysis done via: Room EQ Wizard https://www.roomeqwizard.com
