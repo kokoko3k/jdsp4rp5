@@ -47,7 +47,7 @@ ELI5, over-detailed how to:
       
       RP5 Internal Storage
           L Downloads
-               L jdsp4rp5
+               L jdsp4rp5  (NOT jdsp4rp5-main!)
                      L support 
                      L 00-jdsp_setup.sh
                      L ...other files
