@@ -42,7 +42,7 @@ Drawbacks:
 ELI5, over-detailed how to:
 -----------------------------
     * If you haven't already, download the zip release file.
-    * First unpack somewhere, then move the just unpacked
+    * First unpack it somewhere, then move the just unpacked
       "jdsp4rp5-setup" subfolder to your internal Downloads directory.
       
 	* Double check that the final structure looks like:
