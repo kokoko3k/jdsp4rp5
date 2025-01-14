@@ -35,6 +35,10 @@
 	chcon u:object_r:vendor_configs_file:s0 /vendor/etc/audio_effects.xml 
 
 #setup a tmpfs mount
+	if [ ! -d "$TMPFS" ]; then
+		echo "Creating mountpoint $TMPFS"
+		mkdir "$TMPFS"
+	fi
 	mount -t tmpfs tmpfs $TMPFS
 
 #copy  new effect libs and original soundfx the over it.
